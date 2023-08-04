@@ -63,15 +63,16 @@ public class Lab3P2_walterdoblado {
                 JColorChooser colorr = new JColorChooser();
                 col = colorr.showDialog(null, "seleccione un color", Color.RED);
 
-                System.out.println("ingrese la fecha --->MM/dd/yyyy");
-                date1 = lea.nextLine();
-                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-                while (!date1.matches("^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[\\/]([20/19][2-9][4-9])")) {
+                DateFormat df = new SimpleDateFormat("yyyy");
+               System.out.println("ingrese la fecha --->yyyy");
+                date1 = lea.next();
+                int fe;
+                fe = Integer.parseInt(date1);
+                while (!(date1.matches("\\d{1,4}") || fe <1900 || fe>2024)) {
                     System.out.println("puede que la fecha a ingresar del producto sea menor a este año"
                             + "\n o que el tiempo no sea adecuado para almacenar");
                     System.out.println("ingrese la fecha de vencimiento --->MM/dd/yyyy");
-                    date1 = lea.nextLine();
+                    date1 = lea.next();
                 }
                 date = df.parse(date1);
 
@@ -119,36 +120,75 @@ public class Lab3P2_walterdoblado {
                 String date1;
 
                 double velMax;
+                String velMax1;
 
                 double peso;
+                String peso1;
 
                 double camb;
+                String camb1;
 
-                numPlac = getString("ingrese el numero de placa");
-
-                marca = getString("ingrese la marca");
-
-                modelo = getString("ingrese el modelo");
-
-                tipo = getString("ingrese el tipo de automovil");
-
-                JColorChooser colorr = new JColorChooser();
-                col = colorr.showDialog(null, "seleccione un color", Color.RED);
-
-                System.out.println("ingrese la fecha --->MM/dd/yyyy");
-                date1 = lea.nextLine();
-                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-                while (!date1.matches("^(0?[1-9]|[12][0-9]|3[01])[\\/](0?[1-9]|1[012])[\\/]([20/19][2-9][4-9])")) {
+//                numPlac = getString("ingrese el numero de placa");
+//
+//                marca = getString("ingrese la marca");
+//
+//                modelo = getString("ingrese el modelo");
+//
+//                tipo = getString("ingrese el tipo de moto");
+//
+//                JColorChooser colorr = new JColorChooser();
+//                col = colorr.showDialog(null, "seleccione un color", Color.RED);
+////
+//              
+                DateFormat df = new SimpleDateFormat("yyyy");
+               System.out.println("ingrese la fecha --->yyyy");
+                date1 = lea.next();
+                int fe;
+                fe = Integer.parseInt(date1);
+                while (!(date1.matches("\\d{1,4}") || fe <1900 || fe>2024)) {
                     System.out.println("puede que la fecha a ingresar del producto sea menor a este año"
                             + "\n o que el tiempo no sea adecuado para almacenar");
                     System.out.println("ingrese la fecha de vencimiento --->MM/dd/yyyy");
-                    date1 = lea.nextLine();
+                    date1 = lea.next();
                 }
                 date = df.parse(date1);
+
+                System.out.println("ingrese velocidad maxima ");
+                velMax1 = lea.next();
+
+                while (!(velMax1.matches("\\d{1,3}") || velMax1.matches("\\d{1,3}\\/\\d"))) {
+
+                    System.out.println("puede que su moto no llegue a esa velocidad");
+                    System.out.println("salio del programa velocidad maxima ");
+                    velMax1 = lea.next();
+
+                }
+                velMax = Integer.parseInt(velMax1);
                 
+                   System.out.println("ingrese el peso");
+                peso1 = lea.next();
+
+                while (!(peso1.matches("\\d{1,3}") || peso1.matches("\\d{1,3}\\/\\d"))) {
+
+                    System.out.println("puede que su moto pese eso");
+                    System.out.println("singrese el peso");
+                    peso1 = lea.next();
+
+                }
+                peso = Integer.parseInt(peso1);
+                    System.out.println("ingrese el consumo de combustible");
+                camb1 = lea.next();
+
+                while (!(camb1.matches("\\d{1,3}") || camb1.matches("\\d{1,3}\\/\\d"))) {
+
+                    System.out.println("puede que su moto no consuma eso");
+                    System.out.println("ingrese el consumo de combustible");
+                camb1 = lea.next();
                 
+                }
+                camb = Integer.parseInt(camb1);
                 
+//                veh.add(new Motocicleta(velMax, peso, camb, numPlac, marca, modelo, tipo, col, date));
 
             } else if (opc == 3) {
 
@@ -161,7 +201,7 @@ public class Lab3P2_walterdoblado {
             } else if (opc == 7) {
 
             } else if (opc == 8) {
-                System.out.println("salio del programa ");
+                System.out.println("salio del programa velocidad maxima ");
             } else {
 
             }
@@ -197,5 +237,6 @@ public class Lab3P2_walterdoblado {
         }
         return s1;
     }
+
 
 }
