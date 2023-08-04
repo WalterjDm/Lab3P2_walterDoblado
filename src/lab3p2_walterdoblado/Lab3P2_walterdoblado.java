@@ -53,7 +53,16 @@ public class Lab3P2_walterdoblado {
                 String numAseintos1;
 
                 numPlac = getString("ingrese el numero de placa");
-
+  String[] t = numPlac.split("");
+        String t2 = numPlac.substring(0, 2);
+        String t3 = numPlac.substring(3,6 );
+        
+                while (!t3.matches("\\d{1,4}")) {                    
+                       numPlac = getString("ingrese el numero de placa");
+                }
+       while(!(t[0].equals("H"))){
+             numPlac = getString("ingrese el numero de placa");
+        }
                 marca = getString("ingrese la marca");
 
                 modelo = getString("ingrese el modelo");

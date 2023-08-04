@@ -60,6 +60,9 @@ public class Automovil extends Vehiculo{
     }
 
     public void setNumPlac(String numPlac) {
+      
+        
+        
         this.numPlac = numPlac;
     }
 
