@@ -64,11 +64,11 @@ public class Lab3P2_walterdoblado {
                 col = colorr.showDialog(null, "seleccione un color", Color.RED);
 
                 DateFormat df = new SimpleDateFormat("yyyy");
-               System.out.println("ingrese la fecha --->yyyy");
+                System.out.println("ingrese la fecha --->yyyy");
                 date1 = lea.next();
                 int fe;
                 fe = Integer.parseInt(date1);
-                while (!(date1.matches("\\d{1,4}") || fe <1900 || fe>2024)) {
+                while (!(date1.matches("\\d{1,4}") || fe < 1900 || fe > 2024)) {
                     System.out.println("puede que la fecha a ingresar del producto sea menor a este año"
                             + "\n o que el tiempo no sea adecuado para almacenar");
                     System.out.println("ingrese la fecha de vencimiento --->MM/dd/yyyy");
@@ -128,24 +128,24 @@ public class Lab3P2_walterdoblado {
                 double camb;
                 String camb1;
 
-//                numPlac = getString("ingrese el numero de placa");
+                numPlac = getString("ingrese el numero de placa");
+
+                marca = getString("ingrese la marca");
+
+                modelo = getString("ingrese el modelo");
+
+                tipo = getString("ingrese el tipo de moto");
+
+                JColorChooser colorr = new JColorChooser();
+                col = colorr.showDialog(null, "seleccione un color", Color.RED);
 //
-//                marca = getString("ingrese la marca");
-//
-//                modelo = getString("ingrese el modelo");
-//
-//                tipo = getString("ingrese el tipo de moto");
-//
-//                JColorChooser colorr = new JColorChooser();
-//                col = colorr.showDialog(null, "seleccione un color", Color.RED);
-////
-//              
+
                 DateFormat df = new SimpleDateFormat("yyyy");
-               System.out.println("ingrese la fecha --->yyyy");
+                System.out.println("ingrese la fecha --->yyyy");
                 date1 = lea.next();
                 int fe;
                 fe = Integer.parseInt(date1);
-                while (!(date1.matches("\\d{1,4}") || fe <1900 || fe>2024)) {
+                while (!(date1.matches("\\d{1,4}") || fe < 1900 || fe > 2024)) {
                     System.out.println("puede que la fecha a ingresar del producto sea menor a este año"
                             + "\n o que el tiempo no sea adecuado para almacenar");
                     System.out.println("ingrese la fecha de vencimiento --->MM/dd/yyyy");
@@ -159,13 +159,13 @@ public class Lab3P2_walterdoblado {
                 while (!(velMax1.matches("\\d{1,3}") || velMax1.matches("\\d{1,3}\\/\\d"))) {
 
                     System.out.println("puede que su moto no llegue a esa velocidad");
-                    System.out.println("salio del programa velocidad maxima ");
+                    System.out.println("ingrese velocidad maxima ");
                     velMax1 = lea.next();
 
                 }
                 velMax = Integer.parseInt(velMax1);
-                
-                   System.out.println("ingrese el peso");
+
+                System.out.println("ingrese el peso");
                 peso1 = lea.next();
 
                 while (!(peso1.matches("\\d{1,3}") || peso1.matches("\\d{1,3}\\/\\d"))) {
@@ -176,21 +176,103 @@ public class Lab3P2_walterdoblado {
 
                 }
                 peso = Integer.parseInt(peso1);
-                    System.out.println("ingrese el consumo de combustible");
+                System.out.println("ingrese el consumo de combustible");
                 camb1 = lea.next();
 
                 while (!(camb1.matches("\\d{1,3}") || camb1.matches("\\d{1,3}\\/\\d"))) {
 
                     System.out.println("puede que su moto no consuma eso");
                     System.out.println("ingrese el consumo de combustible");
-                camb1 = lea.next();
-                
+                    camb1 = lea.next();
+
                 }
                 camb = Integer.parseInt(camb1);
-                
-//                veh.add(new Motocicleta(velMax, peso, camb, numPlac, marca, modelo, tipo, col, date));
+
+                veh.add(new Motocicleta(velMax, peso, camb, numPlac, marca, modelo, tipo, col, date));
 
             } else if (opc == 3) {
+
+                String numPlac;
+
+                String marca;
+
+                String modelo;
+
+                String tipo;
+
+                Color col;
+
+                Date date;
+
+                String date1;
+                int cantPas;
+                String cantPas1;
+                int numEje;
+                String numEje1;
+                double longi;
+                String longi1;
+                numPlac = getString("ingrese el numero de placa");
+
+                marca = getString("ingrese la marca");
+
+                modelo = getString("ingrese el modelo");
+
+                tipo = getString("ingrese el tipo de moto");
+
+                JColorChooser colorr = new JColorChooser();
+                col = colorr.showDialog(null, "seleccione un color", Color.RED);
+//
+
+                DateFormat df = new SimpleDateFormat("yyyy");
+                System.out.println("ingrese la fecha --->yyyy");
+                date1 = lea.next();
+                int fe;
+                fe = Integer.parseInt(date1);
+                while (!(date1.matches("\\d{1,4}") || fe < 1900 || fe > 2024)) {
+                    System.out.println("puede que la fecha a ingresar del producto sea menor a este año"
+                            + "\n o que el tiempo no sea adecuado para almacenar");
+                    System.out.println("ingrese la fecha de vencimiento --->MM/dd/yyyy");
+                    date1 = lea.next();
+                }
+                date = df.parse(date1);
+
+                System.out.println("ingrese el numero de pasajeros ");
+                cantPas1 = lea.next();
+
+                while (!(cantPas1.matches("\\d{1,2}") || cantPas1.matches("\\d{1,2}\\/\\d"))) {
+
+                    System.out.println("puede que su autobus no puede con esa capacidad");
+                    System.out.println("ingrese el numero de pasajeros ");
+                    cantPas1 = lea.next();
+
+                }
+                cantPas = Integer.parseInt(cantPas1);
+                System.out.println("ingrese el numero de ejes ");
+                numEje1 = lea.next();
+
+                while (!(numEje1.matches("\\d{1,2}") || numEje1.matches("\\d{1,2}\\/\\d"))) {
+
+                    System.out.println("puede que su autobus no tenga esa cantidad");
+                   System.out.println("ingrese el numero de ejes ");
+                    numEje1 = lea.next();
+
+                }
+                numEje = Integer.parseInt(numEje1);
+                
+                 System.out.println("ingrese la longitud del bus ");
+                longi1 = lea.next();
+
+                while (!(longi1.matches("\\d{1,2}") || longi1.matches("\\d{1,2}\\/\\d"))) {
+
+                    System.out.println("puede que su autobus no tenga esa logitud");
+                     System.out.println("ingrese la longitud del bus ");
+                    longi1 = lea.next();
+
+                }
+                longi = Integer.parseInt(longi1);
+                
+                
+                veh.add(new Autobus(cantPas, numEje, longi, numPlac, marca, modelo, tipo, col, date));
 
             } else if (opc == 4) {
 
@@ -237,6 +319,5 @@ public class Lab3P2_walterdoblado {
         }
         return s1;
     }
-
 
 }
