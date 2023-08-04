@@ -33,6 +33,8 @@ public class Vehiculo {
     }
 
     public void setNumplac(String numPlac) {
+        
+        
         this.numPlac = numPlac;
     }
 

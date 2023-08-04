@@ -290,15 +290,15 @@ public class Lab3P2_walterdoblado {
                         if (object instanceof Automovil) {
 
                             System.out.println("1. modificar placa"
-                                    + "2. mod marca"
-                                    + "3. mod modelo"
-                                    + "4. mod tipo"
-                                    + "5. mod color"
-                                    + "6. mod fecha"
-                                    + "7. mod combustible"
-                                    + "8. mod numero de puertas"
-                                    + "9. mod transmicion"
-                                    + "10. mod numero de asientos");
+                                    + "\n\n2. mod marca"
+                                    + "\n\n3. mod modelo"
+                                    + "\n\n4. mod tipo"
+                                    + "\n\n5. mod color"
+                                    + "\n\n6. mod fecha"
+                                    + "\n\n7. mod combustible"
+                                    + "\n\n8. mod numero de puertas"
+                                    + "\n\n9. mod transmicion"
+                                    + "\n\n10. mod numero de asientos");
 
                             int opt;
                             String opt1;
@@ -389,14 +389,14 @@ public class Lab3P2_walterdoblado {
 
                         }else if (object instanceof Motocicleta) {
                           System.out.println("1. modificar placa"
-                                    + "2. mod marca"
-                                    + "3. mod modelo"
-                                    + "4. mod tipo"
-                                    + "5. mod color"
-                                    + "6. mod fecha"
-                                    + "7. mod velocidad max"
-                                    + "8. mod peso"
-                                    + "9. mod consumo de combustible"
+                                    + "\n\n2. mod marca"
+                                    + "\n\n3. mod modelo"
+                                    + "\n\n4. mod tipo"
+                                    + "\n\n5. mod color"
+                                    + "\n\n6. mod fecha"
+                                    + "\n\n7. mod velocidad max"
+                                    + "\n\n8. mod peso"
+                                    + "\n\n9. mod consumo de combustible"
                                   );
                              int opt;
                             String opt1;
@@ -490,14 +490,14 @@ public class Lab3P2_walterdoblado {
                     }else if (object instanceof Autobus) {
                         
                         System.out.println("1. modificar placa"
-                                    + "2. mod marca"
-                                    + "3. mod modelo"
-                                    + "4. mod tipo"
-                                    + "5. mod color"
-                                    + "6. mod fecha"
-                                    + "7. mod capacidad de pasajeros"
-                                    + "8. mod numero de eje"
-                                    + "9. mod lonjitud"
+                                    + "\n\n2. mod marca"
+                                    + "\n\n3. mod modelo"
+                                    + "\n\n4. mod tipo"
+                                    + "\n\n5. mod color"
+                                    + "\n\n6. mod fecha"
+                                    + "\n\n7. mod capacidad de pasajeros"
+                                    + "\n\n8. mod numero de eje"
+                                    + "\n\n9. mod lonjitud"
                                   );
                              int opt;
                             String opt1;
@@ -590,10 +590,50 @@ public class Lab3P2_walterdoblado {
                 }
                 }
             } else if (opc == 5) {
-                
-                
+                 System.out.println(veh);
+                System.out.println("eliminar vehiculo");
+                System.out.println("ingrese la posicion");
+                int p2 = lea.nextInt();
+                while (p2 > veh.size() || p2 <0) {
+                    System.out.println("fuera de rango");
+                    System.out.println("ingrese la posicion");
+                    p2 = lea.nextInt();
+                }
+               
+                if (p2 > 0 && p2 < veh.size()) {
 
+                    for (Object object : veh) {
+                
+                        veh.get(p2);
+                        
+                        System.out.println("seguro que quiere eliminar? si/no");
+                        String oc = lea.next();
+                        while (!(oc.equals("si"))|| oc.equals("no")) {                            
+                                System.out.println("seguro que quiere eliminar? si/no");
+                     oc = lea.next();
+                        }
+                        if (oc.equals("si")) {
+                            veh.remove(p2);
+                            System.out.println("se elimino");
+                            
+                        }else if(oc.equals("no")){
+                            System.out.println("understandable"
+                                    + "que tenga un buen dia");
+                        }
+                        
+                        
+                        
+                    }
+                }else {
+                    System.out.println(" dato no valido");
+                }
             } else if (opc == 6) {
+                   System.out.println(veh);
+               
+        
+              
+
+                
 
             } else if (opc == 7) {
 
