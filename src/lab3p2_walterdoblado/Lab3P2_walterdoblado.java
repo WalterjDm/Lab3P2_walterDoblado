@@ -59,7 +59,8 @@ public class Lab3P2_walterdoblado {
 
                 System.out.println(t2);
                 System.out.println(t3);
-                while (!(t[0].equals("H") || t3.matches("\\d{1,4}") || numPlac.length() >= 6)) {
+                System.out.println(t[0]);
+                while (!(t[0].equals("H") || t3.matches("\\d{1,4}"))) {
 
                     System.out.println("(\"ingrese el numero de placa\");");
                     numPlac = lea.next();
@@ -147,7 +148,7 @@ public class Lab3P2_walterdoblado {
 
                 System.out.println(t2);
                 System.out.println(t3);
-                while (!(t[0].equals("B") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+                while (!(t[0].equals("B") || t3.matches("\\d{1,4}"))) {
 
                     System.out.println("(\"ingrese el numero de placa\");");
                     numPlac = lea.next();
@@ -243,7 +244,7 @@ public class Lab3P2_walterdoblado {
 
                 System.out.println(t2);
                 System.out.println(t3);
-                while (!(t[0].equals("H") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+                while (!(t[0].equals("H") || t3.matches("\\d{1,4}"))) {
 
                     System.out.println("(\"ingrese el numero de placa\");");
                     numPlac = lea.next();
@@ -447,7 +448,8 @@ public class Lab3P2_walterdoblado {
                                     + "\n\n7. mod velocidad max"
                                     + "\n\n8. mod peso"
                                     + "\n\n9. mod consumo de combustible"
-                            ); System.out.print("seleccion: ");
+                            );
+                            System.out.print("seleccion: ");
                             int opt;
                             String opt1;
                             opt1 = lea.next();
@@ -560,7 +562,7 @@ public class Lab3P2_walterdoblado {
                                     + "\n\n8. mod numero de eje"
                                     + "\n\n9. mod lonjitud"
                             );
-                             System.out.print("seleccion: ");
+                            System.out.print("seleccion: ");
                             int opt;
                             String opt1;
                             opt1 = lea.next();
@@ -665,7 +667,7 @@ public class Lab3P2_walterdoblado {
                         }
 
                     }
-                }else if(veh.isEmpty()){
+                } else if (veh.isEmpty()) {
                     System.out.println("todavia no hay vehiculos");
                 }
             } else if (opc == 5) {
@@ -701,6 +703,8 @@ public class Lab3P2_walterdoblado {
                         }
 
                     }
+                } else if (veh.isEmpty()) {
+                    System.out.println("todavia no hay vehiculos");
                 } else {
                     System.out.println(" dato no valido");
                 }
@@ -714,8 +718,8 @@ public class Lab3P2_walterdoblado {
                     }
 
                 }
-                
-                 for (Object object : veh) {
+
+                for (Object object : veh) {
                     if (object instanceof Motocicleta) {
                         Object object1 = (Object) object;
                         System.out.println(object1);
@@ -723,7 +727,7 @@ public class Lab3P2_walterdoblado {
                     }
 
                 }
-                  for (Object object : veh) {
+                for (Object object : veh) {
                     if (object instanceof Autobus) {
                         Object object1 = (Object) object;
                         System.out.println(object1);
@@ -734,6 +738,73 @@ public class Lab3P2_walterdoblado {
 
             } else if (opc == 7) {
 
+                System.out.println(veh);
+                System.out.println("eliminar vehiculo");
+                System.out.println("ingrese la posicion");
+                int p2 = lea.nextInt();
+                while (p2 >= veh.size() || p2 <= 0) {
+                    System.out.println("fuera de rango");
+                    System.out.println("ingrese la posicion");
+                    p2 = lea.nextInt();
+                }
+
+                if (p2 >= 0 && p2 <= veh.size()) {
+
+                    for (Object object : veh) {
+
+                        veh.get(p2);
+                        if (object instanceof Automovil) {
+                            System.out.println("Boleta de Revisión Vehicular");
+                            System.out.println(((Automovil) veh.get(p2)));
+
+                            int subcant = 275 + 250;
+                            int cant = subcant + 1200;
+
+                            System.out.println("boleta de revision vehicular"
+                                    + "\n -- sub total: " + subcant
+                                    + "\n --- total: " + cant
+                                    + "tipo: automovil");
+                        }
+
+                    }
+
+                    for (Object object : veh) {
+                        if (object instanceof Motocicleta) {
+                            System.out.println("Boleta de Revisión Vehicular");
+                            System.out.println(((Automovil) veh.get(p2)));
+
+                            int subcant = 275 + 250;
+                            int cant = subcant + 200;
+
+                            System.out.println("boleta de revision vehicular"
+                                    + "\n -- sub total: " + subcant
+                                    + "\n --- total: " + cant
+                                    + "tipo: motocicleta");
+
+                        }
+
+                    }
+                    for (Object object : veh) {
+                        if (object instanceof Autobus) {
+                            System.out.println("Boleta de Revisión Vehicular");
+                            System.out.println(((Automovil) veh.get(p2)));
+
+                            int subcant = 275 + 250;
+                            int cant = subcant + 1200;
+
+                            System.out.println("boleta de revision vehicular"
+                                    + "\n -- sub total: " + subcant
+                                    + "\n --- total: " + cant
+                                    + "tipo: autbus");
+
+                        }
+
+                    }
+                } else if (veh.isEmpty()) {
+                    System.out.println("todavia no hay vehiculos");
+                } else {
+                    System.out.println(" dato no valido");
+                }
             } else if (opc == 8) {
                 System.out.println("salio del programa velocidad maxima ");
             } else {
