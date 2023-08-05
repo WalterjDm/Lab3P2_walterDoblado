@@ -14,7 +14,7 @@ public class Lab3P2_walterdoblado {
     public static void main(String[] args) throws ParseException {
         Scanner lea = new Scanner(System.in);
         ArrayList veh = new ArrayList();
-
+        System.out.println("ahorita llegue a mi casa!!!!!!!!!!");
         int opc = 0;
         String opc1;
 
