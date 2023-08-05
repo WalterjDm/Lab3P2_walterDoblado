@@ -51,18 +51,20 @@ public class Lab3P2_walterdoblado {
                 String trans;
                 int numAseintos;
                 String numAseintos1;
+                System.out.println("(\"ingrese el numero de placa\");");
+                numPlac = lea.next();
+                String[] t = numPlac.split("");
+                String t2 = numPlac.substring(0, 3);
+                String t3 = numPlac.substring(3, 7);
 
-                numPlac = getString("ingrese el numero de placa");
-  String[] t = numPlac.split("");
-        String t2 = numPlac.substring(0, 2);
-        String t3 = numPlac.substring(3,6 );
-        
-                while (!t3.matches("\\d{1,4}")) {                    
-                       numPlac = getString("ingrese el numero de placa");
+                System.out.println(t2);
+                System.out.println(t3);
+                while (!(t[0].equals("H") || t3.matches("\\d{1,4}") || numPlac.length() >= 6)) {
+
+                    System.out.println("(\"ingrese el numero de placa\");");
+                    numPlac = lea.next();
+
                 }
-       while(!(t[0].equals("H"))){
-             numPlac = getString("ingrese el numero de placa");
-        }
                 marca = getString("ingrese la marca");
 
                 modelo = getString("ingrese el modelo");
@@ -96,7 +98,7 @@ public class Lab3P2_walterdoblado {
                 numPuert = Integer.parseInt(numPuert1);
 
                 trans = getString("ingrese la transmicion del auto --> manual/automatica");
-                while ((trans.equals("manual") || trans.equals("automatica"))) {
+                while (!(trans.equals("manual") || trans.equals("automatica"))) {
                     System.out.println("transmicion no existe");
                     trans = getString("ingrese la transmicion del auto --> manual/automatica");
                 }
@@ -137,7 +139,20 @@ public class Lab3P2_walterdoblado {
                 double camb;
                 String camb1;
 
-                numPlac = getString("ingrese el numero de placa");
+                System.out.println("(\"ingrese el numero de placa\");");
+                numPlac = lea.next();
+                String[] t = numPlac.split("");
+                String t2 = numPlac.substring(0, 3);
+                String t3 = numPlac.substring(3, 7);
+
+                System.out.println(t2);
+                System.out.println(t3);
+                while (!(t[0].equals("B") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+
+                    System.out.println("(\"ingrese el numero de placa\");");
+                    numPlac = lea.next();
+
+                }
 
                 marca = getString("ingrese la marca");
 
@@ -220,7 +235,20 @@ public class Lab3P2_walterdoblado {
                 String numEje1;
                 double longi;
                 String longi1;
-                numPlac = getString("ingrese el numero de placa");
+                System.out.println("(\"ingrese el numero de placa\");");
+                numPlac = lea.next();
+                String[] t = numPlac.split("");
+                String t2 = numPlac.substring(0, 3);
+                String t3 = numPlac.substring(3, 7);
+
+                System.out.println(t2);
+                System.out.println(t3);
+                while (!(t[0].equals("H") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+
+                    System.out.println("(\"ingrese el numero de placa\");");
+                    numPlac = lea.next();
+
+                }
 
                 marca = getString("ingrese la marca");
 
@@ -283,18 +311,19 @@ public class Lab3P2_walterdoblado {
                 veh.add(new Autobus(cantPas, numEje, longi, numPlac, marca, modelo, tipo, col, date));
 
             } else if (opc == 4) {
+
                 System.out.println(veh);
-                System.out.println("eliminar vehiculo");
+                System.out.println("modificar vehiculo");
                 System.out.println("ingrese la posicion");
                 int p2 = lea.nextInt();
-                while (p2 > veh.size() || p2 <0) {
+                while (!(p2 < veh.size() || p2 > 0)) {
                     System.out.println("fuera de rango");
                     System.out.println("ingrese la posicion");
                     p2 = lea.nextInt();
                 }
-                Object x;
-                if (p2 > 0 && p2 < veh.size()) {
 
+                if (p2 >= 0 && p2 <= veh.size()) {
+                    System.out.println("si");
                     for (Object object : veh) {
                         if (object instanceof Automovil) {
 
@@ -308,7 +337,7 @@ public class Lab3P2_walterdoblado {
                                     + "\n\n8. mod numero de puertas"
                                     + "\n\n9. mod transmicion"
                                     + "\n\n10. mod numero de asientos");
-
+                            System.out.print("seleccion: ");
                             int opt;
                             String opt1;
                             opt1 = lea.next();
@@ -319,7 +348,20 @@ public class Lab3P2_walterdoblado {
                             }
                             opt = Integer.parseInt(opt1);
                             if (opt == 1) {
-                                String numPlac = getString("ingrese el numero de placa");
+                                System.out.println("(\"ingrese el numero de placa\");");
+                                String numPlac = lea.next();
+                                String[] t = numPlac.split("");
+                                String t2 = numPlac.substring(0, 3);
+                                String t3 = numPlac.substring(3, 7);
+
+                                System.out.println(t2);
+                                System.out.println(t3);
+                                while (!(t[0].equals("H") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+
+                                    System.out.println("(\"ingrese el numero de placa\");");
+                                    numPlac = lea.next();
+
+                                }
 
                                 ((Automovil) veh.get(p2)).setNumPlac(numPlac);
                                 System.out.println("modificada con exito");
@@ -356,12 +398,11 @@ public class Lab3P2_walterdoblado {
                             } else if (opt == 7) {
 
                                 String tipoCom = getString("ingrese el tipo de combustible");
-                                
+
                                 ((Automovil) veh.get(p2)).setTipoCom(tipoCom);
-                          
 
                             } else if (opt == 8) {
-      System.out.println("ingrese el numero de puertas");
+                                System.out.println("ingrese el numero de puertas");
                                 String numPuert1 = lea.next();
                                 while (!(numPuert1.equals("2") || numPuert1.equals("4"))) {
                                     System.out.println("el automovil con esa cantidad de puertas no existe");
@@ -379,25 +420,25 @@ public class Lab3P2_walterdoblado {
                                 }
                                 ((Automovil) veh.get(p2)).setTrans(trans);
                             } else if (opt == 10) {
-                                  System.out.println("ingrese el numero de asientos");
-                               String numAseintos1 = lea.next();
+                                System.out.println("ingrese el numero de asientos");
+                                String numAseintos1 = lea.next();
                                 while (!(numAseintos1.matches("\\d{1,1}"))) {
 
                                     System.out.println("ingrese el numero de asientos");
                                     numAseintos1 = lea.next();
 
                                 }
-                               int numAseintos = Integer.parseInt(numAseintos1);
+                                int numAseintos = Integer.parseInt(numAseintos1);
 
                                 ((Automovil) veh.get(p2)).setNumAseintos(numAseintos);
-                                
-                             
+
                             } else {
+                                System.out.println("dato no valido");
 
                             }
 
-                        }else if (object instanceof Motocicleta) {
-                          System.out.println("1. modificar placa"
+                        } else if (object instanceof Motocicleta) {
+                            System.out.println("1. modificar placa"
                                     + "\n\n2. mod marca"
                                     + "\n\n3. mod modelo"
                                     + "\n\n4. mod tipo"
@@ -406,8 +447,8 @@ public class Lab3P2_walterdoblado {
                                     + "\n\n7. mod velocidad max"
                                     + "\n\n8. mod peso"
                                     + "\n\n9. mod consumo de combustible"
-                                  );
-                             int opt;
+                            ); System.out.print("seleccion: ");
+                            int opt;
                             String opt1;
                             opt1 = lea.next();
                             while (!(opt1.matches("\\d{1,2}"))) {
@@ -417,7 +458,20 @@ public class Lab3P2_walterdoblado {
                             }
                             opt = Integer.parseInt(opt1);
                             if (opt == 1) {
-                                String numPlac = getString("ingrese el numero de placa");
+                                System.out.println("(\"ingrese el numero de placa\");");
+                                String numPlac = lea.next();
+                                String[] t = numPlac.split("");
+                                String t2 = numPlac.substring(0, 3);
+                                String t3 = numPlac.substring(3, 7);
+
+                                System.out.println(t2);
+                                System.out.println(t3);
+                                while (!(t[0].equals("H") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+
+                                    System.out.println("(\"ingrese el numero de placa\");");
+                                    numPlac = lea.next();
+
+                                }
 
                                 ((Motocicleta) veh.get(p2)).setNumPlac(numPlac);
                                 System.out.println("modificada con exito");
@@ -450,55 +504,53 @@ public class Lab3P2_walterdoblado {
                                 }
                                 Date date = df.parse(date1);
                                 ((Motocicleta) veh.get(p2)).setDate(date);
-                            
-                            
-                            
-                        }else if(opt == 7){
-                            
-                            System.out.println("ingrese velocidad maxima ");
-              String  velMax1 = lea.next();
 
-                while (!(velMax1.matches("\\d{1,3}") || velMax1.matches("\\d{1,3}\\/\\d"))) {
+                            } else if (opt == 7) {
 
-                    System.out.println("puede que su moto no llegue a esa velocidad");
-                    System.out.println("ingrese velocidad maxima ");
-                    velMax1 = lea.next();
+                                System.out.println("ingrese velocidad maxima ");
+                                String velMax1 = lea.next();
 
-                }
-                int velMax = Integer.parseInt(velMax1);
-                ((Motocicleta) veh.get(p2)).setVelMax(velMax);
-                
-                        }else if(opt == 8){
-                            System.out.println("ingrese el peso");
-               String peso1 = lea.next();
+                                while (!(velMax1.matches("\\d{1,3}") || velMax1.matches("\\d{1,3}\\/\\d"))) {
 
-                while (!(peso1.matches("\\d{1,3}") || peso1.matches("\\d{1,3}\\/\\d"))) {
+                                    System.out.println("puede que su moto no llegue a esa velocidad");
+                                    System.out.println("ingrese velocidad maxima ");
+                                    velMax1 = lea.next();
 
-                    System.out.println("puede que su moto pese eso");
-                    System.out.println("ingrese el peso");
-                    peso1 = lea.next();
+                                }
+                                int velMax = Integer.parseInt(velMax1);
+                                ((Motocicleta) veh.get(p2)).setVelMax(velMax);
 
-                }
-               int  peso = Integer.parseInt(peso1);
-                            ((Motocicleta) veh.get(p2)).setPeso(peso);
-                        }else if(opt == 9){
-                            System.out.println("ingrese el consumo de combustible");
-               String  camb1 = lea.next();
+                            } else if (opt == 8) {
+                                System.out.println("ingrese el peso");
+                                String peso1 = lea.next();
 
-                while (!(camb1.matches("\\d{1,3}") || camb1.matches("\\d{1,3}\\/\\d"))) {
+                                while (!(peso1.matches("\\d{1,3}") || peso1.matches("\\d{1,3}\\/\\d"))) {
 
-                    System.out.println("puede que su moto no consuma eso");
-                    System.out.println("ingrese el consumo de combustible");
-                    camb1 = lea.next();
+                                    System.out.println("puede que su moto pese eso");
+                                    System.out.println("ingrese el peso");
+                                    peso1 = lea.next();
 
-                }
-               int camb = Integer.parseInt(camb1);
-                            ((Motocicleta) veh.get(p2)).setCamb(camb);
-                        }
-                            
-                    }else if (object instanceof Autobus) {
-                        
-                        System.out.println("1. modificar placa"
+                                }
+                                int peso = Integer.parseInt(peso1);
+                                ((Motocicleta) veh.get(p2)).setPeso(peso);
+                            } else if (opt == 9) {
+                                System.out.println("ingrese el consumo de combustible");
+                                String camb1 = lea.next();
+
+                                while (!(camb1.matches("\\d{1,3}") || camb1.matches("\\d{1,3}\\/\\d"))) {
+
+                                    System.out.println("puede que su moto no consuma eso");
+                                    System.out.println("ingrese el consumo de combustible");
+                                    camb1 = lea.next();
+
+                                }
+                                int camb = Integer.parseInt(camb1);
+                                ((Motocicleta) veh.get(p2)).setCamb(camb);
+                            }
+
+                        } else if (object instanceof Autobus) {
+
+                            System.out.println("1. modificar placa"
                                     + "\n\n2. mod marca"
                                     + "\n\n3. mod modelo"
                                     + "\n\n4. mod tipo"
@@ -507,8 +559,9 @@ public class Lab3P2_walterdoblado {
                                     + "\n\n7. mod capacidad de pasajeros"
                                     + "\n\n8. mod numero de eje"
                                     + "\n\n9. mod lonjitud"
-                                  );
-                             int opt;
+                            );
+                             System.out.print("seleccion: ");
+                            int opt;
                             String opt1;
                             opt1 = lea.next();
                             while (!(opt1.matches("\\d{1,2}"))) {
@@ -518,7 +571,20 @@ public class Lab3P2_walterdoblado {
                             }
                             opt = Integer.parseInt(opt1);
                             if (opt == 1) {
-                                String numPlac = getString("ingrese el numero de placa");
+                                System.out.println("(\"ingrese el numero de placa\");");
+                                String numPlac = lea.next();
+                                String[] t = numPlac.split("");
+                                String t2 = numPlac.substring(0, 3);
+                                String t3 = numPlac.substring(3, 7);
+
+                                System.out.println(t2);
+                                System.out.println(t3);
+                                while (!(t[0].equals("H") || t3.matches("\\d{1,5}") || numPlac.length() == 7)) {
+
+                                    System.out.println("(\"ingrese el numero de placa\");");
+                                    numPlac = lea.next();
+
+                                }
 
                                 ((Autobus) veh.get(p2)).setNumPlac(numPlac);
                                 System.out.println("modificada con exito");
@@ -551,111 +617,132 @@ public class Lab3P2_walterdoblado {
                                 }
                                 Date date = df.parse(date1);
                                 ((Autobus) veh.get(p2)).setDate(date);
-                        }else if (opt == 7){
-                            System.out.println("ingrese el numero de pasajeros ");
-                String cantPas1 = lea.next();
+                            } else if (opt == 7) {
+                                System.out.println("ingrese el numero de pasajeros ");
+                                String cantPas1 = lea.next();
 
-                while (!(cantPas1.matches("\\d{1,2}") || cantPas1.matches("\\d{1,2}\\/\\d"))) {
+                                while (!(cantPas1.matches("\\d{1,2}") || cantPas1.matches("\\d{1,2}\\/\\d"))) {
 
-                    System.out.println("puede que su autobus no puede con esa capacidad");
-                    System.out.println("ingrese el numero de pasajeros ");
-                    cantPas1 = lea.next();
+                                    System.out.println("puede que su autobus no puede con esa capacidad");
+                                    System.out.println("ingrese el numero de pasajeros ");
+                                    cantPas1 = lea.next();
 
-                }
-              int  cantPas = Integer.parseInt(cantPas1);
-              
-              ((Autobus) veh.get(p2)).setCantPas(cantPas);
-                        }else if (opt == 8){
-                              System.out.println("ingrese el numero de ejes ");
-              String  numEje1 = lea.next();
+                                }
+                                int cantPas = Integer.parseInt(cantPas1);
 
-                while (!(numEje1.matches("\\d{1,2}") || numEje1.matches("\\d{1,2}\\/\\d"))) {
+                                ((Autobus) veh.get(p2)).setCantPas(cantPas);
+                            } else if (opt == 8) {
+                                System.out.println("ingrese el numero de ejes ");
+                                String numEje1 = lea.next();
 
-                    System.out.println("puede que su autobus no tenga esa cantidad");
-                    System.out.println("ingrese el numero de ejes ");
-                    numEje1 = lea.next();
+                                while (!(numEje1.matches("\\d{1,2}") || numEje1.matches("\\d{1,2}\\/\\d"))) {
 
-                }
-                int numEje = Integer.parseInt(numEje1);
-                            ((Autobus) veh.get(p2)).setNumEje(numEje);
-                        }else if (opt == 9){
-                             System.out.println("ingrese la longitud del bus ");
-                String longi1 = lea.next();
+                                    System.out.println("puede que su autobus no tenga esa cantidad");
+                                    System.out.println("ingrese el numero de ejes ");
+                                    numEje1 = lea.next();
 
-                while (!(longi1.matches("\\d{1,2}") || longi1.matches("\\d{1,2}\\/\\d"))) {
+                                }
+                                int numEje = Integer.parseInt(numEje1);
+                                ((Autobus) veh.get(p2)).setNumEje(numEje);
+                            } else if (opt == 9) {
+                                System.out.println("ingrese la longitud del bus ");
+                                String longi1 = lea.next();
 
-                    System.out.println("puede que su autobus no tenga esa logitud");
-                    System.out.println("ingrese la longitud del bus ");
-                    longi1 = lea.next();
+                                while (!(longi1.matches("\\d{1,2}") || longi1.matches("\\d{1,2}\\/\\d"))) {
 
-                }
-                int longi = Integer.parseInt(longi1);
-                ((Autobus) veh.get(p2)).setLongi(longi);
-                        }else{
+                                    System.out.println("puede que su autobus no tenga esa logitud");
+                                    System.out.println("ingrese la longitud del bus ");
+                                    longi1 = lea.next();
+
+                                }
+                                int longi = Integer.parseInt(longi1);
+                                ((Autobus) veh.get(p2)).setLongi(longi);
+                            } else {
                                 System.out.println("dato no valido");
+                            }
+                        } else {
+                            System.out.println("no hay vehiculo");
                         }
-                    }
 
-                }
+                    }
+                }else if(veh.isEmpty()){
+                    System.out.println("todavia no hay vehiculos");
                 }
             } else if (opc == 5) {
-                 System.out.println(veh);
+                System.out.println(veh);
                 System.out.println("eliminar vehiculo");
                 System.out.println("ingrese la posicion");
                 int p2 = lea.nextInt();
-                while (p2 > veh.size() || p2 <0) {
+                while (p2 >= veh.size() || p2 <= 0) {
                     System.out.println("fuera de rango");
                     System.out.println("ingrese la posicion");
                     p2 = lea.nextInt();
                 }
-               
-                if (p2 > 0 && p2 < veh.size()) {
+
+                if (p2 >= 0 && p2 <= veh.size()) {
 
                     for (Object object : veh) {
-                
+
                         veh.get(p2);
-                        
+
                         System.out.println("seguro que quiere eliminar? si/no");
                         String oc = lea.next();
-                        while (!(oc.equals("si"))|| oc.equals("no")) {                            
-                                System.out.println("seguro que quiere eliminar? si/no");
-                     oc = lea.next();
+                        while (!(oc.equals("si")) || oc.equals("no")) {
+                            System.out.println("seguro que quiere eliminar? si/no");
+                            oc = lea.next();
                         }
                         if (oc.equals("si")) {
                             veh.remove(p2);
                             System.out.println("se elimino");
-                            
-                        }else if(oc.equals("no")){
+
+                        } else if (oc.equals("no")) {
                             System.out.println("understandable"
                                     + "que tenga un buen dia");
                         }
-                        
-                        
-                        
+
                     }
-                }else {
+                } else {
                     System.out.println(" dato no valido");
                 }
             } else if (opc == 6) {
-                   System.out.println(veh);
-               
-        
-              
+                System.out.println(veh);
+                for (Object object : veh) {
+                    if (object instanceof Automovil) {
+                        Object object1 = (Object) object;
+                        System.out.println(object1);
 
+                    }
+
+                }
                 
+                 for (Object object : veh) {
+                    if (object instanceof Motocicleta) {
+                        Object object1 = (Object) object;
+                        System.out.println(object1);
+
+                    }
+
+                }
+                  for (Object object : veh) {
+                    if (object instanceof Autobus) {
+                        Object object1 = (Object) object;
+                        System.out.println(object1);
+
+                    }
+
+                }
 
             } else if (opc == 7) {
 
             } else if (opc == 8) {
                 System.out.println("salio del programa velocidad maxima ");
             } else {
-                    System.out.println(" dato no valido ");
+                System.out.println(" dato no valido ");
             }
 
-        
+        }
+    }
 
-    }
-    }
     static void menu() {
 
         System.out.println("Agregar Automóvil\n\n"
